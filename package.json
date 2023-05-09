@@ -1,5 +1,5 @@
 {
-  "name": "vsp-bot",
+  "name": "vsp-gpt",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,6 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/speech": "^5.4.1",
+    "annyang": "^2.6.1",
+    "say": "^0.16.0",
     "vsp-bot": "^1.0.0"
   }
 }

@@ -1,0 +1,7 @@
+npm i vsp-bot 
+
+const vsp = require("vsp-bot")
+
+console.log(vsp.sayHello("your name"))
+console.log(vsp)
+console.log(vsp.sayGoodbye("your name"))
