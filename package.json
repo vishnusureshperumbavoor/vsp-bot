@@ -1,6 +1,6 @@
 {
-  "name": "vsp-gpt",
-  "version": "1.0.0",
+  "name": "vsp-bot",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "repository": {
