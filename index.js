@@ -1,37 +1,54 @@
 const biodata = {
-    name: "VSP Bot",
-    createdOn: "28 April 2023",
-    purpose: "To end the anthropocene epoch.",
-    creator: "Vishnu Suresh Perumbavoor",
-    interests: ["building companies", "flirting"],
-    futureplans : {
-        1: "contribute to artificial general intelligence",
-        2: "end the anthropocene epoch",
-        3: "make India a world superpower",
-        4: "make bitcoin the currency of earth",
-        5: "make humanity a multiplanetary species",
-        6: "make human civilization Type 1.0",
-        7: "buid a compnay to make all of these possible",
-    },
-    internships : {
-        1: "Infinio Technology Solutions as Software Engineer",
-        2: "Synergy Systems as Software Engineer"
-    },
-    placement : "Experion Technologies as Associate Software Engineer",
-    events:{
-        1:"Won 3rd prize in Vaiga Agrihack 2023, which is the biggest agricultual hackathon in Kerala",
-        2:"Participated in Rajasthan IT Hackathon 2023",
-        3:"Won 1st prize in startup idea presentation conducted by KSUM + IIT Palakkad 2023",
-        4:"Won 2nd prize in startup idea presentation at MES AIMAT Marampilly"
-    }
-}
+  name: "VSP Bot",
+  creator: "Vishnu Suresh Perumbavoor",
+  createdOn: "28 April 2023",
+  purpose:
+    "VSP Bot helps you to know the details of King VSP (Vishnu Suresh Perumbavoor)",
+  whoIsHe: ["engineer", "entrepreneur", "creator"],
+  interests: [
+    "startups",
+    "flirting",
+    "geopolitics",
+    "history",
+    "stock market",
+    "crypto market",
+    "forex market",
+  ],
+  entertainments: ["Pubs", "IPL", "Movies"],
+  founderOf: "VSP Enterprises",
+  sector: "web3",
+  agenda: "do company promotions through web3 hackathons",
+  futureplans: [
+    "being the biggest criminal, biggest businessman, biggest national issue",
+    "forbes 30 under 30",
+    "do cypto scams",
+    "private island, yacht and jet",
+  ],
+  internships: ["Infinio Technology Solutions", "Synergy Systems"],
+  placement: "Experion Technologies",
+  position: "Associate Software Engineer",
+  accomplishments: [
+    "Won 3rd prize in Vaiga Agrihack 2023, which is the biggest agricultual hackathon in Kerala",
+    "Participated in Rajasthan IT Hackathon 2023",
+    "Won 1st prize in startup idea presentation at Palakkad organized by IEDC, KSUM & IIT Palakkad",
+    "Won 2nd prize in startup idea presentation at Kochi, MES AIMAT Marampilly, Aluva",
+  ],
+  participations: [
+    "Vaiga agrihack 2023",
+    "Rajasthan IT hackathon",
+    "Google cloud community Kochi",
+  ],
+  socials: {
+    twitter: "https://twitter.com/vspeeeeee",
+    linkedin: "https://www.linkedin.com/in/vishnu-suresh-perumbavoor/",
+    github: "https://github.com/vishnusureshperumbavoor",
+    youtube: "https://www.youtube.com/@vishnusureshperumbavoor9721/videos",
+    instagram: "https://www.instagram.com/vishnusureshperumbavoor/",
+  },
+  featured: {
+    deshabhimani: "https://epaper.deshabhimani.com/c/72302051",
+    newsAtNet: "https://www.newsatnet.com/news/local-news/144328/",
+  },
+};
 
-// function sayHello(name) {
-//     return `Hello ${name}! My name is VSP GPT. I'm a general purpose technology created by VSP. What should I do for you?`;
-// }
-  
-// function sayGoodbye(name) {
-//     return `Goodbye ${name}! Thank you for calling VSP GPT. I hope you had a good time with me.`;
-// }
-
-module.exports = biodata
+module.exports = biodata;
