@@ -22,108 +22,89 @@
 
 ## Description
 
-vsp-bot is an NPM package that provides a fun and informative way to display the details of VSP.
+this npm package provides the API request to get the details of [Vishnu Suresh Perumbavoor](https://vishnusureshperumbavoor.github.io/V-S-P/)
+
+## Prerequisites
+NodeJS and VSCode
 
 ## Installation
-
-You can install vsp-bot using NPM. Make sure you have Node.js and NPM installed.
-```sh
-npm install vsp-bot
+1. Open terminal 
 ```
-
-### Usage
-After installing vsp-bot, you can use it in your Node.js application as follows:
+mkdir vspbot
+cd vspbot
+npm i vsp-bot
+code .
+```
+This code opens up the VSCode <br><br>
+2. Create a file called main.js <br>
+Enter the code inside the file
 ```sh
 const vspbot = require('vsp-bot');
-
 console.log(vspbot);
 ```
 
 ### Example Output
-
-The output will be an object containing various details about Vishnu Suresh Perumbavoor, for example:
 ```
 {
   "name": "Vishnu Suresh Perumbavoor",
-  "occupation": "Software Engineer",
+  "occupation": "Hardware and material science engineer",
   "location": "Perumbavoor, Kerala, India",
-  "github": "https://github.com/vishnusureshperumbavoor/",
-  "linkedin": "https://www.linkedin.com/in/vishnu-suresh-perumbavoor/",
   "twitter": "https://twitter.com/vspeeeeee"
 }
 ```
-# How to create an NPM package like this
 
-### Set up a new project
-Create a new project directory for your NPM package and navigate into it:
+# How to create an NPM package like this
+## Prerequisits 
+NodeJS, VSCode and an account on [npmjs.com](https://www.npmjs.com/)
+
+### let's create a package like this
+1. Set up a new project
 ```sh
 mkdir vsp-bot
 cd vsp-bot
 ```
-### Initialize NPM
-Initialize NPM in the project directory by running the following command and providing the required information when prompted:
+2. Initialize NPM
 ```sh
 npm init
 ```
-This will create a package.json file that will store metadata about your package.
-### Write the code
-Create a JavaScript file (e.g., index.js) that contains the functionality you want your NPM package to provide. For this example, let's create a simple function that returns an object with details about VSP:
+3. Create a file called index.js and write the code
 ```sh
-// index.js
 const biodata = {
   name: "VSP Bot",
   creator: "Vishnu Suresh Perumbavoor",
-  founderOf: "VSP dot AI",
-  createdOn: "28 April 2023",
+  founderOf: "VSP Enterprises",
 };
 
 module.exports = biodata;
 ```
-
-### Test the code 
-Create a test file (e.g., test.js) to ensure that your code is working correctly:
+4. Create a file called test.js and test the code 
 ```sh
-// test.js
 const vspbot = require('./index');
-
 console.log(vspbot);
 ```
-Run the test to see if everything is working as expected:
+5. Run test file
 ```sh
 node test.js
 ```
-### Add additional files (optional)
-You may want to include additional files, like a LICENSE file, a README.md file, or other documentation.
-
-### Publish the package
-To publish the package to the NPM registry, you need an NPM account. If you don't have one, create one on the NPM website.
-
-Once you have an account, log in to NPM from your terminal:
+6. Publish the package 
+you should have an account on [npmjs.com](https://www.npmjs.com/) for this.
 ```sh
 npm login
 ```
-Provide your NPM username, password, and email when prompted.
-
-Finally, publish the package to the NPM registry:
-
+Provide your NPM username, password, and email when prompted. <br><br>
+7. Publish the package
 ```sh
 npm publish
 ```
-Your NPM package, vsp-bot, is now published and can be installed by other developers using npm install vsp-bot.
-
-### Updating the package (optional)
-
-If you need to make updates to the package in the future, you can follow these steps:
-
+your publish package will be now visible at the profile section of your npm account <br><br>
+8. Updating the package 
 * Make the desired changes to the code in index.js.
 * Update the version number in package.json.
 * Publish the updated package using npm publish.
 
-That's it! You have now created and published your own NPM package. Other developers can now use your package in their projects by installing it via NPM. Remember that you can always improve and expand the package functionality based on your needs and community feedback. Happy coding!
-
 ## Contact
 
-For any inquiries or support, you can reach out to [Vishnu Suresh Perumbavoor](https://vishnusureshperumbavoor.github.io/V-S-P/). <br>
+For any inquiries or support, you can reach out to [Vishnu Suresh Perumbavoor](https://vishnusureshperumbavoor.github.io/V-S-P/). <br><br>
 [![GMail][gmail-shield]][gmail-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![github][github-shield]][github-url]
