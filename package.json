@@ -17,5 +17,8 @@
     "annyang": "^2.6.1",
     "say": "^0.16.0",
     "vsp-bot": "^1.0.0"
+  },
+  "publishConfig": {
+    "@vishnusureshperumbavoor:registry": "https://npm.pkg.github.com"
   }
 }
