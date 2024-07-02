@@ -22,25 +22,25 @@
 
 ## Description
 
-this npm package provides the API request to get the details of [Vishnu Suresh Perumbavoor](https://vishnusureshperumbavoor.github.io/V-S-P/)
+This npm package provides the details of [Vishnu Suresh Perumbavoor](https://vishnusureshperumbavoor.github.io/V-S-P/)
 
 ## Prerequisites
-NodeJS and VSCode
+* NodeJS  
+* VSCode 
 
 ## Installation
-1. Open terminal 
+Open a directory and run command
 ```
-mkdir vspbot
-cd vspbot
-npm i vsp-bot
-code .
+npm install vsp-bot
 ```
-This code opens up the VSCode <br><br>
-2. Create a file called main.js <br>
-Enter the code inside the file
+Create file app.js and copy paste the code
 ```sh
 const vspbot = require('vsp-bot');
 console.log(vspbot);
+```
+Run command
+```
+node app.js
 ```
 
 ### Example Output
@@ -58,16 +58,11 @@ console.log(vspbot);
 NodeJS, VSCode and an account on [npmjs.com](https://www.npmjs.com/)
 
 ### let's create a package like this
-1. Set up a new project
-```sh
-mkdir vsp-bot
-cd vsp-bot
-```
-2. Initialize NPM
+Open a directory and run command
 ```sh
 npm init
 ```
-3. Create a file called index.js and write the code
+Create a file called index.js and write the code
 ```sh
 const biodata = {
   name: "VSP Bot",
@@ -77,27 +72,28 @@ const biodata = {
 
 module.exports = biodata;
 ```
-4. Create a file called test.js and test the code 
+Create a file called test.js and test the code 
 ```sh
 const vspbot = require('./index');
 console.log(vspbot);
 ```
-5. Run test file
+Run test file
 ```sh
 node test.js
 ```
-6. Publish the package 
+Publish the package 
 you should have an account on [npmjs.com](https://www.npmjs.com/) for this.
 ```sh
 npm login
 ```
 Provide your NPM username, password, and email when prompted. <br><br>
-7. Publish the package
+Publish the package
 ```sh
 npm publish
 ```
-your publish package will be now visible at the profile section of your npm account <br><br>
-8. Updating the package 
+Your publish package will be now visible at the profile section of your npm account 
+ 
+Updating the package 
 * Make the desired changes to the code in index.js.
 * Update the version number in package.json.
 * Publish the updated package using npm publish.
