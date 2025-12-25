@@ -1,9 +1,11 @@
 {
-  "name": "vsp-bot",
+  "name": "vspagent",
   "version": "2.0.0",
-  "description": "AI-powered bot with information about Vishnu Suresh Perumbavoor. Powered by Qwen2.5-0.5B for fast conversational AI.",
+  "description": "AI-powered agent with information about Vishnu Suresh Perumbavoor. Powered by Qwen2.5-0.5B for intelligent conversations.",
   "keywords": [
     "ai",
+    "agent",
+    "ai-agent",
     "chatbot",
     "transformers",
     "qwen",
@@ -15,8 +17,7 @@
   ],
   "main": "index.js",
   "bin": {
-    "vsp-bot": "chat.js",
-    "vspbot": "chat.js"
+    "vspagent": "chat.js"
   },
   "repository": {
     "type": "git",

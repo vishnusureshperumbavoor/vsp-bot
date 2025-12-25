@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 /**
- * VSP Bot - Interactive Chat
+ * VSP Agent - Interactive Chat
  * Continuous conversation with Qwen2.5-0.5B
  */
 
-const vspbot = require('./index');
+const vspagent = require('./index');
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -20,8 +20,8 @@ async function startChat() {
   console.clear();
   console.log("\n");
   console.log("  ╔════════════════════════════════════════════════════════════╗");
-  console.log("  ║           🤖  VSP Bot - Interactive Chat Mode             ║");
-  console.log("  ║              Powered by Qwen2.5-0.5B (CPU)                ║");
+  console.log("  ║          🤖  VSP Agent - Interactive Chat Mode            ║");
+  console.log("  ║              Powered by Qwen2.5-0.5B AI                   ║");
   console.log("  ╚════════════════════════════════════════════════════════════╝");
   console.log("\n");
   
@@ -53,15 +53,15 @@ async function startChat() {
       }
     }, 1000);
     
-    await vspbot.initAI();
+    await vspagent.initAI();
     
     clearInterval(loadingInterval);
     clearInterval(stageInterval);
     process.stdout.write("\r" + " ".repeat(80) + "\r");
     
     console.log("  ✅ Model loaded successfully!\n");
-    console.log("  ╔════════════════════════════════════════════════════════════╗");
-    console.log("  ║  🎯 Chat with VSP Bot about Vishnu Suresh Perumbavoor    ║");
+  console.log("  ╔════════════════════════════════════════════════════════════╗");
+  console.log("  ║  🎯 Chat with VSP Agent about Vishnu Suresh Perumbavoor  ║");
   console.log("  ╠════════════════════════════════════════════════════════════╣");
   console.log("  ║  📝 Commands:                                              ║");
   console.log("  ║     • Type your question and press Enter                  ║");
@@ -98,11 +98,11 @@ function askQuestion() {
     
     // Handle exit commands
     if (question.toLowerCase() === 'exit' || question.toLowerCase() === 'quit') {
-      console.log("\n");
-      console.log("  ╔════════════════════════════════════════════════════════════╗");
-      console.log("  ║            👋 Thanks for chatting with VSP Bot!           ║");
-      console.log("  ║                      Goodbye! 🚀                           ║");
-      console.log("  ╚════════════════════════════════════════════════════════════╝");
+  console.log("\n");
+  console.log("  ╔════════════════════════════════════════════════════════════╗");
+  console.log("  ║           👋 Thanks for chatting with VSP Agent!          ║");
+  console.log("  ║                      Goodbye! 🚀                           ║");
+  console.log("  ╚════════════════════════════════════════════════════════════╝");
       console.log("\n");
       rl.close();
       return;
@@ -149,7 +149,7 @@ function askQuestion() {
       });
       
       // Get AI response with conversation history
-      const response = await vspbot.chat(question, {
+      const response = await vspagent.chat(question, {
         max_new_tokens: 300,
         temperature: 0.7,
         conversationHistory: conversationHistory.slice(-10) // Keep last 10 messages
@@ -168,7 +168,7 @@ function askQuestion() {
       process.stdout.write("\r" + " ".repeat(50) + "\r");
       
       // Display response (simple format)
-      console.log("🤖 VSP Bot:", response);
+      console.log("🤖 VSP Agent:", response);
       console.log(`   (${elapsed}s)\n`);
       
     } catch (error) {

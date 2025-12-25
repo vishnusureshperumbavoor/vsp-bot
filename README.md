@@ -1,8 +1,8 @@
-# vsp-bot npm package 🤖 AI-Powered Edition
+# vspagent npm package 🤖 AI-Powered Agent
 
 ## Description
 
-This npm package provides information about [Vishnu Suresh Perumbavoor](https://vishnusureshperumbavoor.github.io/V-S-P/) with **AI-powered conversational capabilities** using **Qwen2.5-0.5B** by Alibaba Cloud.
+This npm package provides an **AI-powered agent** with information about [Vishnu Suresh Perumbavoor](https://vishnusureshperumbavoor.github.io/V-S-P/). Powered by **Qwen2.5-0.5B** by Alibaba Cloud for intelligent conversations.
 
 ### 🆕 What's New in v2.0
 
@@ -22,72 +22,70 @@ This npm package provides information about [Vishnu Suresh Perumbavoor](https://
 ## Installation
 
 ```bash
-npm install vsp-bot
+npm install vspagent
 ```
 
 ## Quick Start
 
 ### 🎯 Interactive Chat via CLI (Recommended!)
 
-After installing, chat directly from command line:
+After installing, chat directly with the AI agent from command line:
 
 ```bash
 # Install globally
-npm install -g vsp-bot
+npm install -g vspagent
 
-# Start chatting! (two commands work)
-vsp-bot
-# or
-vspbot
+# Start chatting with the agent!
+vspagent
 ```
 
 **Or install locally and use:**
 
 ```bash
 # Install in your project
-npm install vsp-bot
+npm install vspagent
 
 # Run chat
-npx vsp-bot
+npx vspagent
 # or
 npm run chat
 ```
 
-This starts an interactive conversation where you can ask multiple questions in a row!
+This starts an interactive conversation with the AI agent where you can ask multiple questions!
 
 ---
 
 ### Option 1: Static Data (Original Feature - Backward Compatible)
 
 ```javascript
-const vspbot = require('vsp-bot');
+const vspagent = require('vspagent');
 
 // Access static biodata
-console.log(vspbot.name);        // "VSP Bot"
-console.log(vspbot.creator);     // "Vishnu Suresh Perumbavoor"
-console.log(vspbot.biodata);     // Full biodata object
-console.log(vspbot.socials);     // Social media links
+console.log(vspagent.name);        // "VSP Agent"
+console.log(vspagent.creator);     // "Vishnu Suresh Perumbavoor"
+console.log(vspagent.biodata);     // Full biodata object
+console.log(vspagent.socials);     // Social media links
 ```
 
 ### Option 2: AI-Powered Chat (New Feature 🚀)
 
 ```javascript
-const vspbot = require('vsp-bot');
+const vspagent = require('vspagent');
 
 async function chat() {
   // Initialize AI (first time downloads model ~500MB)
-  await vspbot.initAI();
+  await vspagent.initAI();
   
   // Ask questions about VSP
-  const response = await vspbot.chat("Who is Vishnu Suresh Perumbavoor?");
+  const response = await vspagent.chat("Who is Vishnu Suresh Perumbavoor?");
   console.log(response);
   
   // Ask about accomplishments
-  const response2 = await vspbot.chat("Tell me about VSP's achievements");
+  const response2 = await vspagent.chat("Tell me about VSP's achievements");
   console.log(response2);
   
   // Get social media info
-  const response3 = await vspbot.chat("How can I connect with VSP?");
+  const response3 = await vspagent.chat("How can I connect with VSP?");
   console.log(response3);
 }
 
@@ -104,19 +102,19 @@ node chat.js
 This gives you a **real continuous conversation**:
 
 ```
-🤖 VSP Bot - Interactive Chat Mode
+🤖 VSP Agent - Interactive Chat Mode
 ============================================================
 ✅ Model loaded successfully!
 ============================================================
 
 💬 You: Who is VSP?
-🤖 VSP Bot: Vishnu Suresh Perumbavoor is an engineer, entrepreneur...
+🤖 VSP Agent: Vishnu Suresh Perumbavoor is an engineer, entrepreneur...
 
 💬 You: What hackathons did he win?
-🤖 VSP Bot: He won 3rd prize in Vaiga Agrihack 2023...
+🤖 VSP Agent: He won 3rd prize in Vaiga Agrihack 2023...
 
 💬 You: Tell me more about his work
-🤖 VSP Bot: He works at Trenser and has experience with...
+🤖 VSP Agent: He works at Trenser and has experience with...
 
 💬 You: exit
 👋 Thanks for chatting! Goodbye!
@@ -125,13 +123,13 @@ This gives you a **real continuous conversation**:
 ### Option 4: Streaming Chat
 
 ```javascript
-const vspbot = require('vsp-bot');
+const vspagent = require('vspagent');
 
 async function streamChat() {
-  await vspbot.initAI();
+  await vspagent.initAI();
   
   // Streaming response (real-time output)
-  await vspbot.chatStream("Tell me about VSP's hackathon achievements");
+  await vspagent.chatStream("Tell me about VSP's hackathon achievements");
 }
 
 streamChat();
@@ -144,20 +142,20 @@ streamChat();
 All original properties are available:
 
 ```javascript
-vspbot.name              // "VSP Bot"
-vspbot.creator           // "Vishnu Suresh Perumbavoor"
-vspbot.founderOf         // "VSP dot AI"
-vspbot.createdOn         // "28 April 2023"
-vspbot.whoIsHe           // Array of roles
-vspbot.interests         // Array of interests
-vspbot.entertainments    // Array of entertainment preferences
-vspbot.internships       // Array of internships
-vspbot.placement         // Current placement
-vspbot.accomplishments   // Array of accomplishments
-vspbot.participations    // Array of event participations
-vspbot.socials           // Object with social media links
-vspbot.featured          // Featured media links
-vspbot.biodata           // Complete biodata object
+vspagent.name              // "VSP Agent"
+vspagent.creator           // "Vishnu Suresh Perumbavoor"
+vspagent.founderOf         // "VSP dot AI"
+vspagent.createdOn         // "28 April 2023"
+vspagent.whoIsHe           // Array of roles
+vspagent.interests         // Array of interests
+vspagent.entertainments    // Array of entertainment preferences
+vspagent.internships       // Array of internships
+vspagent.placement         // Current placement
+vspagent.accomplishments   // Array of accomplishments
+vspagent.participations    // Array of event participations
+vspagent.socials           // Object with social media links
+vspagent.featured          // Featured media links
+vspagent.biodata           // Complete biodata object
 ```
 
 ### AI-Powered Methods (New)
@@ -176,10 +174,10 @@ Initialize the Qwen2.5-0.5B AI model.
 **Example:**
 ```javascript
 // Initialize with default settings
-await vspbot.initAI();
+await vspagent.initAI();
 
 // Custom options
-await vspbot.initAI({
+await vspagent.initAI({
   dtype: "q4",
   device: "cpu"
 });
@@ -200,7 +198,7 @@ Chat with the AI bot about VSP.
 
 **Example:**
 ```javascript
-const response = await vspbot.chat(
+const response = await vspagent.chat(
   "What are VSP's interests?",
   { max_new_tokens: 256, temperature: 0.8 }
 );
@@ -218,7 +216,7 @@ Stream AI responses in real-time (outputs to console).
 
 **Example:**
 ```javascript
-await vspbot.chatStream("Tell me about VSP's achievements");
+await vspagent.chatStream("Tell me about VSP's achievements");
 // Output streams to console in real-time
 ```
 
@@ -230,7 +228,7 @@ Get information about the AI model being used.
 
 **Example:**
 ```javascript
-const modelInfo = vspbot.getModelInfo();
+const modelInfo = vspagent.getModelInfo();
 console.log(modelInfo.name);        // "Qwen2.5-0.5B-Instruct"
 console.log(modelInfo.size);        // "0.5B parameters"
 console.log(modelInfo.provider);    // "Alibaba Cloud - Qwen Team"
@@ -261,37 +259,37 @@ console.log(modelInfo.provider);    // "Alibaba Cloud - Qwen Team"
 ### Basic Usage
 
 ```javascript
-const vspbot = require('vsp-bot');
+const vspagent = require('vspagent');
 
 // Check if AI is enabled
-console.log('AI Enabled:', vspbot.aiEnabled);    // true
-console.log('Version:', vspbot.version);         // "2.0.0"
+console.log('AI Enabled:', vspagent.aiEnabled);    // true
+console.log('Version:', vspagent.version);         // "2.0.0"
 
 // Use static data
-console.log('Creator:', vspbot.creator);
-console.log('LinkedIn:', vspbot.socials.linkedin);
+console.log('Creator:', vspagent.creator);
+console.log('LinkedIn:', vspagent.socials.linkedin);
 ```
 
 ### AI Chat Examples
 
 ```javascript
-const vspbot = require('vsp-bot');
+const vspagent = require('vspagent');
 
 async function examples() {
   // Initialize once
-  await vspbot.initAI();
+  await vspagent.initAI();
   
   // Example 1: General info
-  const resp1 = await vspbot.chat("Who is VSP?");
+  const resp1 = await vspagent.chat("Who is VSP?");
   
   // Example 2: Specific questions
-  const resp2 = await vspbot.chat("What hackathons did VSP participate in?");
+  const resp2 = await vspagent.chat("What hackathons did VSP participate in?");
   
   // Example 3: Social media
-  const resp3 = await vspbot.chat("Give me VSP's social media links");
+  const resp3 = await vspagent.chat("Give me VSP's social media links");
   
   // Example 4: Interests
-  const resp4 = await vspbot.chat("What does VSP like to do?");
+  const resp4 = await vspagent.chat("What does VSP like to do?");
 }
 
 examples();
@@ -301,16 +299,16 @@ examples();
 
 ```bash
 # If installed globally
-vsp-bot
+vspagent
 
 # If installed locally
-npx vsp-bot
+npx vspagent
 
 # Or using npm script
 npm run chat
 ```
 
-This opens an interactive chat interface where you can have continuous conversations with vspbot!
+This opens an interactive chat interface where you can have continuous conversations with the AI agent!
 
 ## Performance Tips
 
@@ -354,13 +352,13 @@ npm install @huggingface/transformers
 ✅ All original v1.x features work unchanged:
 
 ```javascript
-const vspbot = require('vsp-bot');
+const vspagent = require('vspagent');
 
 // v1.x code still works perfectly
-console.log(vspbot);              // Shows all properties
-console.log(vspbot.name);         // "VSP Bot"
-console.log(vspbot.creator);      // "Vishnu Suresh Perumbavoor"
-console.log(vspbot.socials);      // Social links object
+console.log(vspagent);              // Shows all properties
+console.log(vspagent.name);         // "VSP Agent"
+console.log(vspagent.creator);      // "Vishnu Suresh Perumbavoor"
+console.log(vspagent.socials);      // Social links object
 ```
 
 ## Version History

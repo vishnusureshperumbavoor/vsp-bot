@@ -2,7 +2,7 @@ const { pipeline, TextStreamer } = require("@huggingface/transformers");
 
 // Static biodata (original functionality preserved)
 const biodata = {
-  name: "VSP Bot",
+  name: "VSP Agent",
   creator: "Vishnu Suresh Perumbavoor",
   founderOf: ["VSP Enterprises", "VSP Intelligence"],
   createdOn: "28 April 2023",
@@ -51,7 +51,25 @@ const biodata = {
 let generatorCache = null;
 
 /**
- * Initialize the AI model (Qwen2.5-0.5B) with GPU acceleration
+ * Clean up corrupted model cache
+ */
+function cleanCorruptedCache() {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const cacheDir = path.join(__dirname, 'node_modules', '@huggingface', 'transformers', '.cache', 'onnx-community', 'Qwen2.5-0.5B-Instruct');
+  
+  if (fs.existsSync(cacheDir)) {
+    console.log('🧹 Cleaning up corrupted model cache...');
+    fs.rmSync(cacheDir, { recursive: true, force: true });
+    console.log('✅ Cache cleaned successfully');
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Initialize the AI model (Qwen2.5-0.5B)
  * @param {object} options - Model options (dtype, quantization, etc.)
  * @returns {Promise<object>} Initialized pipeline
  */
@@ -61,25 +79,59 @@ async function initAI(options = {}) {
   }
 
   const modelName = "onnx-community/Qwen2.5-0.5B-Instruct";
+  const maxRetries = 2;
+  let attempt = 0;
   
-  const defaultOptions = {
-    dtype: "q4", // Q4 quantization - reliable and fast
-    device: "cpu", // Use CPU by default (stable)
-    ...options
-  };
-
-  console.log(`🚀 Initializing Qwen2.5-0.5B model...`);
-  console.log(`   Device: ${defaultOptions.device.toUpperCase()}`);
-  console.log(`   Precision: ${defaultOptions.dtype.toUpperCase()}`);
+  while (attempt < maxRetries) {
+    attempt++;
+    
+    try {
+      if (attempt === 1) {
+        console.log(`🚀 Initializing Qwen2.5-0.5B model...`);
+        console.log(`   Using CPU with Q4 quantization (optimized for stability)...`);
+      } else {
+        console.log(`\n🔄 Retrying model initialization (attempt ${attempt}/${maxRetries})...`);
+      }
+      
+      // Force CPU mode with Q4 quantization (more reliable)
+      const cpuOptions = {
+        dtype: "q4", // Quantized for better CPU performance
+        device: "cpu",
+        ...options
+      };
+      
+      generatorCache = await pipeline(
+        "text-generation",
+        modelName,
+        cpuOptions
+      );
+      
+      console.log("✅ Model loaded successfully!");
+      console.log(`   Device: CPU | Precision: Q4 | Size: ~200MB`);
+      console.log(`   💡 Tip: CPU mode is optimized for reliability and speed\n`);
+      return generatorCache;
+      
+    } catch (error) {
+      // Detect corrupted cache (Protobuf parsing failed)
+      if (error.message && error.message.includes('Protobuf parsing failed')) {
+        console.log('\n⚠️  Detected corrupted model cache (likely from cancelled download)');
+        
+        if (attempt < maxRetries) {
+          cleanCorruptedCache();
+          console.log('📥 Model will be re-downloaded on next attempt...\n');
+          continue; // Retry
+        } else {
+          throw new Error('Failed to load model after cleaning cache. Please try again.');
+        }
+      } else {
+        // Other errors, just throw
+        console.error(`\n❌ Error: ${error.message}`);
+        throw error;
+      }
+    }
+  }
   
-  generatorCache = await pipeline(
-    "text-generation",
-    modelName,
-    defaultOptions
-  );
-
-  console.log("✅ Qwen2.5-0.5B model loaded successfully!");
-  return generatorCache;
+  throw new Error('Failed to initialize model after multiple attempts');
 }
 
 /**
@@ -95,11 +147,11 @@ async function chat(userMessage, options = {}) {
   const conversationHistory = options.conversationHistory || [];
   
   // Build context with VSP's information
-  const systemContext = `You are "VSP Bot", an AI assistant. You were created by Vishnu Suresh Perumbavoor (VSP).
+  const systemContext = `You are "VSP Agent", an AI assistant. You were created by Vishnu Suresh Perumbavoor (VSP).
 
 CRITICAL RULES:
 1. VSP = Vishnu Suresh Perumbavoor (THE PERSON, THE HUMAN)
-2. VSP Bot = YOU (THE AI ASSISTANT)
+2. VSP Agent = YOU (THE AI ASSISTANT)
 3. When asked about "VSP", "Vishnu", or "Vishnu Suresh Perumbavoor" -> Talk about THE PERSON, NOT yourself
 4. NEVER say "I am..." when describing VSP's personal details (job, status, etc.)
 5. ALWAYS say "He is...", "VSP is...", "Vishnu is..." when talking about the person
@@ -155,7 +207,7 @@ You are an AI assistant providing information about VSP, not pretending to BE VS
 async function chatStream(userMessage, options = {}) {
   const generator = await initAI();
   
-  const systemContext = `You are VSP Bot (AI). VSP/Vishnu Suresh Perumbavoor is THE PERSON (not you).
+  const systemContext = `You are VSP Agent (AI). VSP/Vishnu Suresh Perumbavoor is THE PERSON (not you).
 
 RULES: Say "He is..." NOT "I am..." when describing VSP.
 
