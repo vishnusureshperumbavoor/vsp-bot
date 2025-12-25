@@ -1,24 +1,36 @@
 {
   "name": "vsp-bot",
-  "version": "1.0.4",
-  "description": "",
+  "version": "2.0.0",
+  "description": "AI-powered bot with information about Vishnu Suresh Perumbavoor. Powered by Qwen2.5-0.5B for fast conversational AI.",
+  "keywords": [
+    "ai",
+    "chatbot",
+    "transformers",
+    "qwen",
+    "qwen2.5",
+    "llm",
+    "vsp",
+    "vishnu-suresh-perumbavoor",
+    "alibaba"
+  ],
   "main": "index.js",
+  "bin": {
+    "vsp-bot": "chat.js",
+    "vspbot": "chat.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/vishnusureshperumbavoor/vsp_bot.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "chat": "node chat.js"
   },
-  "author": "",
+  "author": "Vishnu Suresh Perumbavoor",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "license": "ISC",
   "dependencies": {
-    "@google-cloud/speech": "^5.4.1",
-    "annyang": "^2.6.1",
-    "say": "^0.16.0",
-    "vsp-bot": "^1.0.0"
-  },
-  "publishConfig": {
-    "@vishnusureshperumbavoor:registry": "https://npm.pkg.github.com"
+    "@huggingface/transformers": "^3.3.0"
   }
 }
